@@ -1,0 +1,16 @@
+import sqlite3def main():
+	sqlite_file = 'inventory_schema'	# name of the sqlite database file
+	
+
+	conn = sqlite3.connect(sqlite_file)	c = conn.cursor()
+
+	while True:
+		user_input = input("execute SQL script:  ")
+		if user_input[0:6].lower() == 'select':
+			c.execute(user_input)
+			print(c.fetchall())
+		elif user_input[0].lower() == 'q':
+			return
+		else:
+			c.execute(user_input)					conn.commit()
+		def insert_values():	sqlite_file = 'inventory_schema'	# name of the sqlite database file		conn = sqlite3.connect(sqlite_file)	c = conn.cursor()	laptop_value_template = 'INSERT INTO Laptops (ProductName, ManufacturerName, ManufacturerCountry, ModelYear,\	ProductColour, ProductPrice, IsPremium, NumofProductSold, ProductSpecs, ProductComments) VALUES \	({pname} ,{manname} ,{mancount}, {year}, {prodcolour}, {prodprice}, {ispremium}, \	{numofproductsold}, {productspecs}, {productcomments})'				laptops_population = {	'insert_value_laptops_1': laptop_value_template.format(pname = "'LayZBoy'",\	manname = "'JLC'", mancount = "'China'", year = "'2013'", prodcolour = "'Blackish'", \	prodprice = 3000, ispremium = 1, numofproductsold = 4, \	productspecs = "'length: 0.3 m, width: 0.5 m'", productcomments = "'Our number 1 product, must push more!'"),		'insert_value_laptops_2': laptop_value_template.format(pname = "'Time$ucker'",\	manname = "'JLC'", mancount = "'China'", year = "'2014'", prodcolour = "'Green'", \	prodprice = 2300, ispremium = 0, numofproductsold = 30, \	productspecs = "'length: 0.3 meters, width: 0.7 meter'", productcomments = "'Customer favorite, no discounts.'"),		'insert_value_laptops_3': laptop_value_template.format(pname = "'Template King'",\	manname = "'Achpunkt'", mancount = "'Germany'", year = "'2016'", prodcolour = "'Green'", \	prodprice = 2000, ispremium = 0, numofproductsold = 7, \	productspecs = "'length: 0.3 meters, width: 0.7 meter'", productcomments = "'Try pushing Timesucker instead.'"),		'insert_value_laptops_4': laptop_value_template.format(pname = "'Hoochi-Mama'",\	manname = "'Stars and Strips'", mancount = "'USA'", year = "'2018'", prodcolour = "'Teal'", \	prodprice = 1500, ispremium = 0, numofproductsold = 8 , \	productspecs = "'length: 0.5 meters, width: 0.5 meter'", productcomments = "'New and promising, maybe will sell more on holidays.'"),		'insert_value_laptops_5': laptop_value_template.format(pname = "'Poor Man''s Notebook'",\	manname = "'HLC'", mancount = "'Hungary'", year = "'2010'", prodcolour = "'Yellow'", \	prodprice = 800, ispremium = 0, numofproductsold = 15, \	productspecs = "'length: 0.3 meters, width: 0.7 meter'", productcomments = "'Poor man''s choice, if someone asks for it don''t waste time pushing other stuff.'")	}		for i in range (1, 6):		c.execute(laptops_population['insert_value_laptops_'+str(i)])	for i in range (1, 6):			c.execute('update laptops set grossproductrevenue = (select\		numofproductsold*productprice from laptops where product_id = {})\		where product_id = {}').format(str(i))	conn.commit()	insert_values()main()
