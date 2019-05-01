@@ -1,3 +1,7 @@
 *.sqlite3
 *.sqlite
 test.py
+switchtest.py
+*.db
+*.sqlite
+*.sqlite3
