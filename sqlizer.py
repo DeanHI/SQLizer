@@ -49,15 +49,29 @@ def view_all_tables():
 	con = sqlite3.connect(sqlite_file)
 	c = con.cursor()
 	
-	col_list = []
-	val_list = []
-
-	c.execute('select productname, productprice,ispremium,numofproductsold from screens where productid in (2,3,4)')
+	table_names = []
+	all_tables_columns = []
+	all_tables_values = []
+	
+	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
+	for name in c.fetchall():
+		table_names.append((str(name))[2:-3])
+	
+	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
 	for i in c.fetchall():
-		val_list.append(i)
-	for j in c.description:
-		col_list.append(j[0])
-	return render_template('tables.html', col_list=col_list, val_list=val_list)
+		val_list = []
+		col_list = []
+		c.execute('select * from '+(str(i)[2:-3]))
+		for j in (c.description):
+			col_list.append(j[0])
+		for k in c.fetchall():
+			val_list.append(k)
+		all_tables_columns.append(col_list)
+		all_tables_values.append(val_list)
+		
+	return render_template('viewtables.html', all_tables_columns=all_tables_columns,\
+	all_tables_values=all_tables_values, table_names=table_names)
+	
 	
 				
 	
@@ -66,3 +80,4 @@ def view_all_tables():
 
 if __name__ == "__main__":
 	app.run(debug = True)
+	
