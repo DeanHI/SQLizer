@@ -6,9 +6,40 @@
 <head>
 </head>
 <body>
-{%block table%}
-{%endblock%}
+		
+			
+		{% for name in table_names %}
+		<p>Table name:   {{name}}</p>
+			
+		{%for columns in all_tables_columns%}<table border="1">
+		
+			<thead class="tablehead">
+	
+		
+			{%for eachcolumn in columns%}
+			<th>{{eachcolumn}}</th>
+			{% endfor %}
+			
+			</thead>
 
+			
+		
+			{% for allvalues in all_tables_values %}
+			<tbody class="tablebody">
+			
+			<tr>{% for row in allvalues%}</tr>
+					{% for value in row %}
+					<td>{{(value)}}</td>
+					{% endfor %}
+				{% endfor %}
+			
+		
+			<br><br>
+			</tbody>
+			{% endfor %}
+		</table><br><br><br>
+		{% endfor %}
+		{% endfor %}
 	
 </body>
 </html>
