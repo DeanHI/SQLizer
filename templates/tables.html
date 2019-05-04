@@ -1,0 +1,18 @@
+{% extends 'viewtables.html' %}{%block table%}	<table border="1">
+		<thead class="tablehead">
+	
+		{%for c in col_list%}
+		<th>{{c}}</th>
+		{%endfor%}
+		</thead>
+
+		<tbody class="tablebody">
+		
+		<tr>{%for row in val_list%}</tr>
+			{%for v in row%}
+		<td>{{(v)}}</td>
+			{%endfor%}
+		{%endfor%}
+	<br><br>
+		</tbody>
+	</table>{%endblock%}
