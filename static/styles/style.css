@@ -1,24 +1,60 @@
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
+  
 }
 
 body {
   background-color: #FBFBFB;
+
+  box-sizing: border-box;
+  
+  position: fixed;
+
+
 }
 table {
   background-color: white;
-  color: black
-  border-radius: 15px;
+  color: black;
+  border-spacing: 0;
+  border-radius: 25px;
+  width: 250px;
+  height: 100px;
+  border-color: black;
+  
+  overflow: hidden;  
 }
 
 .tablehead {
   background-color: blue;
   color: white;
-}
-
-.tablebody {
+  border-radius: 20px;
+  padding: 2em;
   
 }
+th, td {
+  border: 1px solid #CCC;
+  padding: 1em;
+}
+
+tr td:hover { background: #666; color: #FFF; } 
+
+#submit{
+  width:14em;
+}
+#wrapper{
+  width: 50%;
+  margin: auto;
+}
+#footer{
+  
+  bottom: 0;
+  font-size:12px;
+  color:gray; 
+  border-top: 1px solid gray
+}
+
+
+
 
 
