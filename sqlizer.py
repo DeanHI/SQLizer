@@ -5,9 +5,31 @@ from schema_create import create_store_schema, insert_initial_values
 
 app = Flask(__name__)
 
+def table_dict():
 
-def view_table():
-	pass
+	import sqlite3	
+	sqlite_file = 'inventory_schema'	
+	con = sqlite3.connect(sqlite_file)
+	c = con.cursor()
+	
+	val_list = []
+	col_list = []
+	table_dict = []
+	col_list_multiplier = 0
+	
+	c.execute('select * from Toffee')
+	for i in c.fetchall():
+		col_list_multiplier += 1
+		val_list.append(i)
+	for j in c.description:		
+		col_list.append(j[0])
+	
+	col_list = [col_list]*col_list_multiplier
+	
+	table_dict = list(map(dict, map(zip, col_list, val_list)))
+	
+
+
 
 
 
@@ -44,40 +66,9 @@ def table_present():
 		
 @app.route('/viewtables')
 def view_all_tables():
-	import sqlite3	
-	sqlite_file = 'inventory_schema'	
-	con = sqlite3.connect(sqlite_file)
-	c = con.cursor()
-	
-	table_names = []
-	all_tables_columns = []
-	all_tables_values = []
-	
-	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
-	for name in c.fetchall():
-		table_names.append((str(name))[2:-3])
-	
-	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
-	for i in c.fetchall():
-		val_list = []
-		col_list = []
-		c.execute('select * from '+(str(i)[2:-3]))
-		for j in (c.description):
-			col_list.append(j[0])
-		for k in c.fetchall():
-			val_list.append(k)
-		all_tables_columns.append(col_list)
-		all_tables_values.append(val_list)
+	pass
 		
-	return render_template('viewtables.html', all_tables_columns=all_tables_columns,\
-	all_tables_values=all_tables_values, table_names=table_names)
-	
-	
-				
-	
-	
-	
-
 if __name__ == "__main__":
 	app.run(debug = True)
+	
 	
