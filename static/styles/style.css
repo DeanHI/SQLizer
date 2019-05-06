@@ -9,7 +9,7 @@ body {
 
   box-sizing: border-box;
   
-  position: fixed;
+  position: relative;
 
 
 }
@@ -18,8 +18,8 @@ table {
   color: black;
   border-spacing: 0;
   border-radius: 25px;
-  width: 250px;
-  height: 100px;
+  width: auto;
+  height: auto;
   border-color: black;
   
   overflow: hidden;  
@@ -39,13 +39,24 @@ th, td {
 
 tr td:hover { background: #666; color: #FFF; } 
 
+.sitenav {
+  
+  margin: 50px;
+  
+}
+.prodname{
+  font-size: 20px;
+  text-align: center;
+}
+
+.prodpicture{
+  text-align: center;
+}
+
 #submit{
   width:14em;
 }
-#wrapper{
-  width: 50%;
-  margin: auto;
-}
+
 #footer{
   
   bottom: 0;
