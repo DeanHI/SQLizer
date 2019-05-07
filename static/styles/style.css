@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-html {  font-family: 'Open Sans', sans-serif;  font-size: 12px;  }body {  background-color: #dcdcdc;  box-sizing: border-box;    position: relative;}table {  background-color: white;  color: black;  border-spacing: 0;  border-radius: 25px;  width: auto;  height: auto;  border-color: black;    overflow: hidden;  }img {  border-radius: 8px;	  border: 1px solid #CCC;  width: 250px;  height: 175px;  max-width: 100%;  -webkit-box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75);  -moz-box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75);  box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75); }.tablehead {  background-color: blue;  color: white;  border-radius: 20px;  padding: 2em;  }th, td {  border: 1px solid #CCC;  padding: 1em;}tr td:hover { background: #666; color: #FFF; } .sitenav {    margin: 50px;  }.prodname{  font-size: 20px;  text-align: center;}.prodpicture{  text-align: center;}.productview{  margin: auto;  width: 75%;  border: 2px solid black;  background-color: white;  border-radius: 25px;  background-color: #f7f7f7;  padding-bottom: 3px;}.specsbox{  border: 0.5px solid gray;  width: 50%;  position: relative;  margin: auto;  border-radius: 15px;  background-color: white;  padding: 10px;  padding-left:30px;}#submit{  width:14em;  }#footer{    bottom: 0;  font-size:12px;  color:gray;   border-top: 1px solid gray}
-=======
+
 html {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
@@ -8,7 +6,7 @@ html {
 }
 
 body {
-  background-color: #FBFBFB;
+  background-color: #dcdcdc;
 
   box-sizing: border-box;
   
@@ -27,6 +25,16 @@ table {
   
   overflow: hidden;  
 }
+img {
+  border-radius: 8px;	
+  border: 1px solid #CCC;
+  width: 250px;
+  height: 175px;
+  max-width: 100%;
+  -webkit-box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: -27px 14px 5px 0px rgba(0,0,0,0.75);
+ }
 
 .tablehead {
   background-color: blue;
@@ -55,9 +63,29 @@ tr td:hover { background: #666; color: #FFF; }
 .prodpicture{
   text-align: center;
 }
+.productview{
+  margin: auto;
+  width: 75%;
+  border: 2px solid black;
+  background-color: white;
+  border-radius: 25px;
+  background-color: #f7f7f7;
+  padding-bottom: 3px;
+}
+.specsbox{
+  border: 0.5px solid gray;
+  width: 50%;
+  position: relative;
+  margin: auto;
+  border-radius: 15px;
+  background-color: white;
+  padding: 10px;
+  padding-left:30px;
+}
 
 #submit{
   width:14em;
+  
 }
 
 #footer{
@@ -72,4 +100,3 @@ tr td:hover { background: #666; color: #FFF; }
 
 
 
->>>>>>> fc6a870dc67a0ec233421b058f47cf9e1881dae5
