@@ -1,18 +1,1 @@
-{% extends 'viewtables.html' %}{%block table%}	<table border="1">
-		<thead class="tablehead">
-	
-		{%for c in col_list%}
-		<th>{{c}}</th>
-		{%endfor%}
-		</thead>
-
-		<tbody class="tablebody">
-		
-		<tr>{%for row in val_list%}</tr>
-			{%for v in row%}
-		<td>{{(v)}}</td>
-			{%endfor%}
-		{%endfor%}
-	<br><br>
-		</tbody>
-	</table>{%endblock%}
+<!doctype html>{%include 'parent.html'%}<html><head></head><body><table>	<p>Table name: </p>	{% for i in toffee%}		<thead class ="tablehead">	{%for key in i.keys() if loop.first %}		<th>{{key}}</th>	{% endfor %}	</thead>	<tbody>	{%for key in i.values()%}		<td>{{key}}</td>	{% endfor %}	</tbody>{% endfor %}</table></body></html>
