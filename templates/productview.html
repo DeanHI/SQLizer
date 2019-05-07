@@ -1,41 +1,28 @@
-<<<<<<< HEAD
+
 {% include 'parent.html' %}
 
-<p><div class="productview">
+<p>
+<div class="productview">
 <p class="prodname">{{product_dict["ProductName"]}}</p>
-<p class="prodpicture"><img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'> </p><div class="specsbox">
+
+<p class="prodpicture"><img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'> </p>
+
+<div class="specsbox">
+
 <p>Colour:        {{product_dict["ProductColour"]}}</p>
 
 <p>Price:        {{product_dict["ProductPrice"]}}.00$</p>
 
 Delivered by:        {{product_dict["ManufacturerName"]}}
-<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
+
+<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
 Year:       {{product_dict["ModelYear"]}}
 
 <p>Specifications:        {{product_dict["ProductSpecs"]}}</p>
-</div></div></p>
+
+</div>
+</div>
+</p>
 
 
 
-=======
-{% include 'parent.html' %}
-
-<p class="sitenav">
-<p class="prodname">{{product_dict["ProductName"]}}</p>
-<br><br><br>
-<p class="prodpicture">This is the product picture:</p>
-<br><br><br>
-This is the product colour:        {{product_dict["ProductColour"]}}
-<br><br><br>
-<p>This is the product price:        {{product_dict["ProductPrice"]}}.00$</p>
-<br><br><br>
-Delivered by:        {{product_dict["ManufacturerName"]}}
-<br><br><br>
-Year:       {{product_dict["ModelYear"]}}
-<br><br><br>
-Specifications:        {{product_dict["ProductSpecs"]}}
-<br><br><br>
-
-
-<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/AVANT-P870DMG-GAMING-LAPTOP.png"> --> </p>
->>>>>>> fc6a870dc67a0ec233421b058f47cf9e1881dae5
