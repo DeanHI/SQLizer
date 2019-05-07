@@ -1,52 +1,45 @@
-<<<<<<< HEAD
-<!doctype html><html>{% include 'parent.html'%}<html><head></head><body>	<p>Table name: </p>	<table>	<thead class ="tablehead">	{%for shit in newl %}		{% for dict in shit %} 			{% for key, value in dict.items()%}      <th>{{ key }}</th>	  </thead>			{% endfor %} 	  <tbody>	  <tr>{% for value in dict.values()%}</tr>	  <td>{{value}}</td>{% endfor %}	  </tbody>	  	  					 		{% endfor %}{% endfor %}	<table>	  			 </body></html>			
-=======
 <!doctype html>
 
 <html>
 {% include 'parent.html'%}
 
-<head>
-</head>
+<html>
+<head></head>
 <body>
-		
-			
-		{% for name in table_names %}
-		<p>Table name:   {{name}}</p>
-			
-		{%for columns in all_tables_columns%}<table border="1">
-		
-			<thead class="tablehead">
-	
-		
-			{%for eachcolumn in columns%}
-			<th>{{eachcolumn}}</th>
-			{% endfor %}
-			
-			</thead>
 
+	<p>Table name: </p>
+	<table>
+	<thead class ="tablehead">
+	{%for shit in newl %}
+		{% for dict in shit %} 
+			{% for key, value in dict.items()%}
+      <th>{{ key }}</th>
+	  </thead>
+			{% endfor %} 
+	  <tbody>
+	  <tr>{% for value in dict.values()%}</tr>
+	  <td>{{value}}</td>{% endfor %}
+	  </tbody>
+	  
+	  
 			
-		
-			{% for allvalues in all_tables_values %}
-			<tbody class="tablebody">
-			
-			<tr>{% for row in allvalues%}</tr>
-					{% for value in row %}
-					<td>{{(value)}}</td>
-					{% endfor %}
-				{% endfor %}
-			
-		
-			<br><br>
-			</tbody>
-			{% endfor %}
-		</table><br><br><br>
+		 
 		{% endfor %}
-		{% endfor %}
-	
+{% endfor %}	
+<table>	  
+
+			 
+
+
+
 </body>
 </html>
+	
+
+		
 
 
 
->>>>>>> fc6a870dc67a0ec233421b058f47cf9e1881dae5
+
+
+
