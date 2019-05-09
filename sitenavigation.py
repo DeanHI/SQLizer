@@ -1,4 +1,11 @@
 import sqlite3from flask import Flask, render_templateapp = Flask(__name__)@app.route('/<cat>/<product>')
+=======
+
+import sqlite3
+from flask import Flask, render_template
+app = Flask(__name__)
+@app.route('/<cat>/<product>')
+>>>>>>> e276a8da5f656c921f5438b4426d77ebdb5f7af1
 def product_present(cat, product):
 	import sqlite3	
 	sqlite_file = 'inventory_schema'	
@@ -53,4 +60,4 @@ def get_category():
 	for name in c.fetchall():
 		category_line.append((str(name))[2:-3])
 		
-	return render_template('categories.html', category_line=category_line)
+

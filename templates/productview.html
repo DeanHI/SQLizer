@@ -1,18 +1,25 @@
 {% include 'parent.html' %}
 
-<p><div class="productview">
+<p>
+<div class="productview">
 <p class="prodname">{{product_dict["ProductName"]}}</p>
-<p class="prodpicture"><img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'> </p><div class="specsbox">
+
+<p class="prodpicture"><img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'> </p>
+
+<div class="specsbox">
+
 <p>Colour:        {{product_dict["ProductColour"]}}</p>
 
 <p>Price:        {{product_dict["ProductPrice"]}}.00$</p>
 
 Delivered by:        {{product_dict["ManufacturerName"]}}
-<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
+
+<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
 Year:       {{product_dict["ModelYear"]}}
 
 <p>Specifications:        {{product_dict["ProductSpecs"]}}</p>
 </div></div></p>
+
 
 
 
