@@ -1,13 +1,8 @@
-import sqlite3from flask import Flask, render_templateapp = Flask(__name__)@app.route('/<cat>/<product>')
-=======
-
 import sqlite3
 from flask import Flask, render_template
 app = Flask(__name__)
 @app.route('/<cat>/<product>')
->>>>>>> e276a8da5f656c921f5438b4426d77ebdb5f7af1
 def product_present(cat, product):
-	import sqlite3	
 	sqlite_file = 'inventory_schema'	
 	con = sqlite3.connect(sqlite_file)
 	c = con.cursor()
@@ -35,7 +30,6 @@ def product_present(cat, product):
 
 @app.route('/<cat>')
 def products_from_cat(cat):
-	import sqlite3	
 	sqlite_file = 'inventory_schema'	
 	con = sqlite3.connect(sqlite_file)
 	c = con.cursor()
@@ -49,8 +43,7 @@ def products_from_cat(cat):
 	return render_template('products.html', products_line=products_line, cat=cat)
 	
 @app.route('/productcat')
-def get_category():
-	import sqlite3	
+def get_category():	
 	sqlite_file = 'inventory_schema'	
 	con = sqlite3.connect(sqlite_file)
 	c = con.cursor()

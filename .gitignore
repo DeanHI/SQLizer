@@ -9,3 +9,5 @@ switchtest.py
 =======
 inventory_schema
 >>>>>>> aa5b30b9ebd2f7557b804efbb5fd1f99cc413903
+codeicut.py
+*.pyc
