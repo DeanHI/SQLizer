@@ -1,2 +1,3 @@
-{% include 'parent.html' %}
-{% for i in category_line %}<p class="sitenav"><a href="/{{i}}">{{i}}</a><br><br><br><br></p>{% endfor %}<a class="sitenav" href="/dashboard">Manager Dashboard</a>
+{% include 'parent.html' %}<div id="content">
+{% for i in category_line %}<a href="/{{i}}">{{i}}</a><br><br><br><br>{% endfor %}<a href="/dashboard">Manager Dashboard</a>
+</div>

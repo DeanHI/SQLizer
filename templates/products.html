@@ -1,1 +1,2 @@
-{% include 'parent.html' %}{% for i in products_line %}<p class="sitenav"><a href="/{{cat}}/{{i}}">{{i}}</a><br><br><br><br></p>{% endfor %}
+{% include 'parent.html' %}<div id="content">{% for i in products_line %}<a href="/{{cat}}/{{i}}">{{i}}</a><br><br><br><br>{% endfor %}
+</div>
