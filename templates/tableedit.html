@@ -3,9 +3,9 @@
 
 <html>
 <head></head>
-<body><div id="content">			
-		<p>Table name: {{table_name}}</p>		<p>SQL Script:    UPDATE <span style="color:red;">{{table_name}}</span> SET...</p>
-	<form action="/tableedit/{{table_name}}" method="POST">	{% for i in col_list %}				<input type="checkbox" name="colname" value="{{i}}">{{i}} = 		<input type="text" name="newvalue"  		placeholder="Insert a single new value here" size ="40px" ><p style="font-size20px">		<br>	{% endfor %}		<input type="submit" value="Next">
-	</form>			</div>
+<body><div id="marginer">	<div id="content">					
+			<p>Table name: {{table_name}}</p>			<p>SQL Script:    UPDATE <span style="color:red;">{{table_name}}</span> SET...</p>
+		<form action="/tableedit/{{table_name}}" method="POST">		{% for i in col_list %}						<input type="checkbox" name="colname" value="{{i}}">{{i}} = 			<input type="text" name="newvalue"  			placeholder="Insert a single new value here" size ="40px" ><p style="font-size20px">			<br>		{% endfor %}			<input type="submit" value="Next">
+		</form>				</div></div>
 </body>
 </html>

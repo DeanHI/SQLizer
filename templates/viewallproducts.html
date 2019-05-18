@@ -3,25 +3,25 @@
 
 <html>
 <head></head>
-<body><div id="content">
-<table>
-	<p>All Products</p>
+<body><div id="marginer">	<div id="content">
+	<table>
+		<p>All Products</p>
 
-	
-	<thead>
-	{% for i in one_column%}	
-		<th>{{i}}</th>
+		
+		<thead>
+		{% for i in one_column%}	
+			<th>{{i}}</th>
+		{% endfor %}
+		</thead>
+
+
+		<tbody>
+		<tr>{%for i in allpt%}</tr>		{% for j in i %}
+			<td>{{j}}</td>
+		{% endfor %}
+		</tbody>
 	{% endfor %}
-	</thead>
-
-
-	<tbody>
-	<tr>{%for i in allpt%}</tr>	{% for j in i %}
-		<td>{{j}}</td>
-	{% endfor %}
-	</tbody>
-{% endfor %}
-</table>
-</div>
+	</table>
+	</div></div>
 </body>
 </html>
