@@ -20,12 +20,11 @@ body {
 	background-color: blue;
 	color: white;
 	padding: 2em;
-	border-color: black;
 	font-size: 8px;
 }th, td {
-	border: 1px solid #CCC;
+	border: 1px solid;
 	padding: 1em;
-}tr td:hover {	background: #666; color: #FFF; } 
+}tr td:hover {	background: #666; color: #FFF; } 
 
 a {
 	cursor: pointer;
