@@ -1,0 +1,42 @@
+<!doctype html>
+{%include 'parent.html'%}
+
+<html>
+<head></head>
+<body>
+<div id="marginer">
+	<div id="content">	<p class="tablename">Table name: {{table_name}}</p>
+
+	<p>SQL Script: DELETE FROM<span style="color:red;">{{table_name}}</span> WHERE...</p>	<form action="/itemdelete/{{table_name}}" method="POST">
+		<div style="flex-direction: row; display: table">
+			<div style="line-height: 3.02; display: table-cell">
+			{% for i in col_list %}
+			<input type="checkbox" name="existing_columns" value="{{i}}">{{i}} = 
+				<br>
+			{% endfor %}
+			</div>
+
+			<div style="flex-wrap: wrap; padding-top: 11px; display: table-cell; line-height: 1.42">
+			{% for i in newl %}
+			<select name="existing_values" >
+				<option value=""></option>
+				{% for j in i%}
+				<option value="{{j}}">{{j}}</option>
+				{% endfor %}
+				</select><br><br>
+			{% endfor %}
+			</div>
+
+			<div style="border: 2px solid red; padding: 3px; border-radius: 15px; height=50px; padding: 5px;">	
+				Clauses: <br><br>
+				<input type="radio" name="clause" value="OR" checked>OR<br>
+				<input type="radio" name="clause" value="AND">AND<br>
+				<input type="radio" name="clause" value="">NONE
+				<br><br>
+				<input type="submit">
+			</div>
+		</div>	</form>
+	</div></div>
+</body>
+
+</html>

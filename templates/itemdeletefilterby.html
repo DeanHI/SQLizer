@@ -1,0 +1,22 @@
+<!doctype html>
+{%include 'parent.html'%}
+
+<html>
+<head></head>
+<body>
+<div id="marginer">
+	<div id="content">	<p class="tablename">Table Name: {{table_name}}</p>
+	<p>SQL Script to be Executed:<br>
+		<div style="border: 3px solid black; border-radius: 25px; text-align: center; padding: 3px;">
+			{{code_to_be_executed}}
+		</div>
+		<div style="text-align:center">
+			<a href="/code/{{code_to_be_executed}}">Execute code</a>
+			<a href="/dashboard">Reset and return to Dashboard</a>
+			
+			
+		</div>	</div>
+</div>
+
+</body>
+</html>

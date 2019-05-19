@@ -4,10 +4,7 @@ from flask import Flask, render_template, requestfrom app import app
 @app.route('/useraction')
 def user_action():
 	return render_template('useraction.html')	
-	
-	
 
-######---------------<<<<<<<<<<<<DASHBOARD STUFF>>>>>>>>>>>--------------#############	
 		
 @app.route('/category/<cat>/<product>')
 def product_present(cat, product):
@@ -91,7 +88,27 @@ def table_dict(table_name):
 	table_dict = list(map(dict, map(zip, col_list, val_list)))
 
 	return table_dict
+@app.route('/tableview', methods=['POST'])
+def table_view():
 
+	table_name = request.form["table"]	
+	chosen_table = table_dict(table_name)
+	return render_template("tableview.html", chosen_table=chosen_table, table_name=table_name)
+
+
+@app.route('/dashboard')
+def choose_table_to_view():
+	import sqlite3	
+	sqlite_file = 'inventory_schema'	
+	con = sqlite3.connect(sqlite_file)
+	c = con.cursor()
+	
+	table_names = []
+	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
+	for name in c.fetchall():
+		table_names.append((str(name))[2:-3])	
+	
+	return render_template("inventory_management_and_statistics.html", table_names=table_names)
 
 @app.route('/')
 def homepage():

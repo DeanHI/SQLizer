@@ -1,49 +1,7 @@
 import sqlite3
 from flask import Flask, render_template, requestfrom app import app######---------------<<<<<<<<<<<<DASHBOARD STUFF>>>>>>>>>>>--------------#############
-@app.route('/viewallproducts')
-def view_all_tables():
-	import sqlite3	
-	sqlite_file = 'inventory_schema'	
-	con = sqlite3.connect(sqlite_file)
-	c = con.cursor()
-	
-	c.execute("select name from sqlite_master where name != 'sqlite_sequence'")
-	all_tables = [str(i)[2:-3] for i in c.fetchall()]
-	
-	executor = []
-	for i in all_tables:
-		executor.append("select * from " + i + " union all")
-	
-	executor = " ".join(executor)
-	executor = executor[:-10]
-	c.execute("create view AllProducts as " + executor)
-	c.execute("select * from AllProducts")
-	allpt = [i for i in c.fetchall()]
-	one_column = [i[0] for i in c.description]
-	c.execute("DROP VIEW IF EXISTS AllProducts")
-	con.close()
-	
-	
-	
-	return render_template('viewallproducts.html', allpt=allpt, one_column=one_column)
 
-@app.route('/tableview', methods=['POST'])
-def table_view():
-
-	table_name = request.form["table"]	
-	chosen_table = table_dict(table_name)
-	return render_template("tableview.html", chosen_table=chosen_table, table_name=table_name)
 	
-@app.route('/code/<code_to_be_executed>', methods=['GET'])
-def execute_command(code_to_be_executed):
-	sqlite_file = 'inventory_schema'	
-	con = sqlite3.connect(sqlite_file)
-	c = con.cursor()
-	code = code_to_be_executed
-	c.execute(code)
-	con.commit()
-	con.close()
-	return render_template('codeexecution.html', code=code)
 	
 @app.route('/tableedit/<table_name>/filters<update_list>', methods=['POST', 'GET'])
 def updatefilterby(table_name, update_list):
@@ -152,20 +110,6 @@ def table_edit():
 		col_list.append(j[0])
 	return render_template("tableedit.html", table_name=table_name, col_list=col_list, val_list=val_list)
 
-
-
 	
-@app.route('/dashboard')
-def choose_table_to_view():
-	import sqlite3	
-	sqlite_file = 'inventory_schema'	
-	con = sqlite3.connect(sqlite_file)
-	c = con.cursor()
-	
-	table_names = []
-	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
-	for name in c.fetchall():
-		table_names.append((str(name))[2:-3])	
-	
-	return render_template("inventory_management_and_statistics.html", table_names=table_names)
+
 	

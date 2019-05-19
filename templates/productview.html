@@ -1,23 +1,23 @@
 {% include 'parent.html' %}
 <div id="marginer">
-	<div id="content">
-	{{product_dict["ProductName"]}}
+	<div id="content">		<div id="prodname">
+		{{product_dict["ProductName"]}}		</div>		
+		<div id="specsbox">
+		
 
-	<img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'>
+		<img src={{product_dict['ProductImageURL']}} title='The {{product_dict["ProductName"]}}!'>
 
+		<p>Colour:        {{product_dict["ProductColour"]}}</p>
 
+		<p>Price:        {{product_dict["ProductPrice"]}}.00$</p>
 
-	<p>Colour:        {{product_dict["ProductColour"]}}</p>
+		Delivered by:        {{product_dict["ManufacturerName"]}}
 
-	<p>Price:        {{product_dict["ProductPrice"]}}.00$</p>
+		<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
+		Year:       {{product_dict["ModelYear"]}}
 
-	Delivered by:        {{product_dict["ManufacturerName"]}}
-
-	<p>Manufactured in:  {{product_dict["ManufacturerCountry"]}}</p>
-	Year:       {{product_dict["ModelYear"]}}
-
-	<p>Specifications:        {{product_dict["ProductSpecs"]}}</p>
-	</div></div>
+		<p>Specifications:        {{product_dict["ProductSpecs"]}}</p>
+		</div>	</div></div>
 
 
 
