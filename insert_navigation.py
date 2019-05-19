@@ -16,8 +16,7 @@ def item_insert_filter_by(table_name):
 		else:
 			new_val_filter.append("'" + word + "'")		new_val_filter = " (" + ", ".join(new_val_filter) + ")"
 	code_to_be_executed = "INSERT INTO " + table_name + excols + "VALUES" + new_val_filter
-	#code_to_be_executed = "INSERT INTO " + table_name + excols +(" + new_val_filter + ") "
-	return render_template("itemdeletefilterby.html", code_to_be_executed=code_to_be_executed)@app.route('/iteminsert', methods=['POST'])
+	return render_template("iteminsertfilterby.html", code_to_be_executed=code_to_be_executed,\	table_name=table_name)@app.route('/iteminsert', methods=['POST'])
 def item_insert():
 	sqlite_file = 'inventory_schema'	
 	con = sqlite3.connect(sqlite_file)

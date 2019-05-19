@@ -1,6 +1,5 @@
+{%include 'parent.html'%}
 <!doctype html>
-{%include 'parent.html'%}
-
 <html>
 <head></head>
 <body>
@@ -12,7 +11,7 @@
 			{{code_to_be_executed}}
 		</div>
 		<div style="text-align:center">
-			<a href="/code/{{code_to_be_executed}}">Execute code</a>
+			<a href="/{{table_name}}/code/{{code_to_be_executed}}">Execute code</a>
 			<a href="/dashboard">Reset and return to Dashboard</a>
 			
 			
