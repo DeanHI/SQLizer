@@ -3,7 +3,7 @@ from flask import Flask, render_template, requestfrom app import app
 
 @app.route('/useraction')
 def user_action():
-	return render_template('useraction.html')	
+	return render_template('/navigation/useraction.html')	
 
 		
 @app.route('/category/<cat>/<product>')
@@ -30,7 +30,7 @@ def product_present(cat, product):
 	product_dict = list(map(dict, map(zip, col_list, val_list)))
 	product_dict = product_dict[0]
 
-	return render_template('productview.html', cat=cat, product=product, product_dict=product_dict)
+	return render_template('/navigation/productview.html', cat=cat, product=product, product_dict=product_dict)
 
 @app.route('/category/<cat>')
 def products_from_cat(cat):
@@ -45,7 +45,7 @@ def products_from_cat(cat):
 	for productname in c.fetchall():
 		products_line.append((str(productname)[2:-3]))
 			
-	return render_template('products.html', products_line=products_line, cat=cat)
+	return render_template('/navigation/products.html', products_line=products_line, cat=cat)
 
 
 @app.route('/productcat')
@@ -60,9 +60,32 @@ def get_category():
 	for name in c.fetchall():
 		category_line.append((str(name))[2:-3])
 		
-	return render_template('categories.html', category_line=category_line)
+	return render_template('/navigation/categories.html', category_line=category_line)
+@app.route('/tableview', methods=['POST'])
+def table_view():
 
-def table_dict(table_name):
+	table_name = request.form["table"]	
+	chosen_table = table_dict(table_name)
+	return render_template("/navigation/tableview.html", chosen_table=chosen_table, table_name=table_name)
+
+
+@app.route('/dashboard')
+def choose_table_to_view():
+	import sqlite3	
+	sqlite_file = 'inventory_schema'	
+	con = sqlite3.connect(sqlite_file)
+	c = con.cursor()
+	
+	table_names = []
+	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
+	for name in c.fetchall():
+		table_names.append((str(name))[2:-3])	
+	
+	return render_template("/navigation/inventory_management_and_statistics.html", table_names=table_names)
+
+@app.route('/')
+def homepage():
+	return render_template('/navigation/homepage.html')def table_dict(table_name):
 	"""function for returning complete html tables by paramaters passed to table (table name)"""
 	
 	sqlite_file = 'inventory_schema'	
@@ -88,28 +111,3 @@ def table_dict(table_name):
 	table_dict = list(map(dict, map(zip, col_list, val_list)))
 
 	return table_dict
-@app.route('/tableview', methods=['POST'])
-def table_view():
-
-	table_name = request.form["table"]	
-	chosen_table = table_dict(table_name)
-	return render_template("tableview.html", chosen_table=chosen_table, table_name=table_name)
-
-
-@app.route('/dashboard')
-def choose_table_to_view():
-	import sqlite3	
-	sqlite_file = 'inventory_schema'	
-	con = sqlite3.connect(sqlite_file)
-	c = con.cursor()
-	
-	table_names = []
-	c.execute('select name from sqlite_master where name not like "sqlite_sequence"')
-	for name in c.fetchall():
-		table_names.append((str(name))[2:-3])	
-	
-	return render_template("inventory_management_and_statistics.html", table_names=table_names)
-
-@app.route('/')
-def homepage():
-	return render_template('homepage.html')

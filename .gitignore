@@ -2,3 +2,5 @@ style2.css
 codeicut.py
 switchtest.py
 *.pyc*.db*.sqlite
+__pyc__
+*.pyc

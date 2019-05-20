@@ -23,7 +23,7 @@ from app import app@app.route('/itemdelete/<table_name>', methods=['POST'])de
 		elif filtersplit[-2] == "AND":
 			filters = filters[:-4]		code_to_be_executed = "DELETE FROM " + table_name + " WHERE " + filters
 	else:
-		code_to_be_executed = "DELETE FROM " + table_name	return render_template("itemdeletefilterby.html", table_name=table_name,\
+		code_to_be_executed = "DELETE FROM " + table_name	return render_template("/delete/itemdeletefilterby.html", table_name=table_name,\
 	filters=filters, code_to_be_executed=code_to_be_executed)	
 
 @app.route('/itemdelete', methods=['POST'])
@@ -53,5 +53,5 @@ def item_delete():
 	#this arranges the list before in byte-sized chunks for iteration in the html
 	
 	
-	return render_template('itemdelete.html', \
+	return render_template('/delete/itemdelete.html', \
 	table_name=table_name, col_list=col_list, newl=newl)

@@ -34,7 +34,7 @@ def updatefilterby(table_name, update_list):
 		code_to_be_executed = "UPDATE " + table_name + " SET " + update_list
 
 	
-	return render_template("updatefilterby.html", update_list=update_list, table_name=table_name,\
+	return render_template("/update/updatefilterby.html", update_list=update_list, table_name=table_name,\
 	filters=filters, code_to_be_executed=code_to_be_executed)
 
 @app.route('/tableedit/<table_name>', methods=['POST', 'GET'])
@@ -86,7 +86,7 @@ def updatetable(table_name):
 	#this arranges the list before in byte-sized chunks for iteration in the html
 	
 	
-	return render_template('tableupdate.html', colname=colname, \
+	return render_template('/update/tableupdate.html', colname=colname, \
 	table_name=table_name, col_list=col_list, new_val=new_val, update_list=update_list,\
 	newl=newl)
 	
@@ -108,7 +108,7 @@ def table_edit():
 		val_list.append(i)
 	for j in c.description:		
 		col_list.append(j[0])
-	return render_template("tableedit.html", table_name=table_name, col_list=col_list, val_list=val_list)
+	return render_template("/update/tableedit.html", table_name=table_name, col_list=col_list, val_list=val_list)
 
 	
 
