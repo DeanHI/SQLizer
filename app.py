@@ -1,1 +1,1 @@
-from flask import Flaskapp = Flask(__name__)
+from flask import Flaskfrom flask_bcrypt import Bcryptfrom flask_session import Sessionapp = Flask(__name__)bcrypt = Bcrypt(app)session = Session(app)

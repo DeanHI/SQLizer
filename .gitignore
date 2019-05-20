@@ -4,3 +4,6 @@ switchtest.py
 *.pyc*.db*.sqlite
 __pyc__
 *.pyc
+inventory_schema
+users_schema
+inventory_schema
